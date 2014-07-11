@@ -66,6 +66,8 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
   
   $scope.$watch('selected_words', function() {
     
+    console.log('watch selected_words ', $scope.selected_words);
+    
     $scope.answer.sequence = _.map($scope.selected_words, function(sw) {
         return sw.identifier
       }).join(',');
@@ -73,7 +75,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
   });
 
   $scope.$watch('email', function() {
-    
+    console.log('watch email ', $scope.email);
     $scope.answer.email = $scope.email;
     
   });
