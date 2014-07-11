@@ -35,15 +35,19 @@
           class="repeated-item" ng-repeat="word in words"
           ng-class="{ 'active': word.is_selected }"
         >
-          <i 
-            class="fa fa-fw fa-caret-left"
-            ng-if="word.is_selected"></i>
-          <a 
-            href
-            ng-click="toggleWord(word)">{{ word.value }}</a>
-          <i 
-            class="fa fa-fw fa-caret-right"
-            ng-if="word.is_selected"></i>
+          <a href>
+            <i 
+              class="fa fa-fw fa-caret-left"
+              ng-if="word.is_selected"></i>
+            <span
+              style="margin-left: 5px; margin-right: 5px;"
+              ng-click="toggleWord(word)">
+              {{ word.value }}  
+            </span>
+            <i 
+              class="fa fa-fw fa-caret-right"
+              ng-if="word.is_selected"></i>
+          </a>
         </li>
       </ul>
     </div>      
