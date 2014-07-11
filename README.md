@@ -1,4 +1,4 @@
-Where is Sparky?
+Where is Sparky? :honeybee:
 ======
 
 Rules
@@ -9,3 +9,5 @@ Play with the web client
 ---
 [<strong>&#8594; There</strong>](http://pgu.github.io/sparky/)
 
+
+![](https://pbs.twimg.com/profile_images/445594352937492480/pX9A1h2E.png)
