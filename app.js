@@ -22,8 +22,17 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
         });
 */
 
+  $scope.selected_words = [];
+  
   $scope.toggleWord = function(w) {
     w.is_selected = !w.is_selected;
+    
+    if (w.is_selected) {
+      $scope.selected_words.push(w);
+    } else {
+      $scope.selected_words = _.without($scope.selected_words, w);
+    }
+    
   }
 
   $scope.pics = [{name: 'PaloAlto.png'},{name: 'SanFrancisco.png'},{name: 'Chicago.png'}];
@@ -37,6 +46,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
      {value:'wover',identifier:'10485f5a5'},{value:'wgrey',identifier:'10485f5a6'},
      {value:'wbig',identifier:'10485f5a7'},{value:'wpavement',identifier:'10485f5a8'}
    ];
+   
 
 
 //    sparky is resting next to the Fedex box
