@@ -82,7 +82,7 @@ angular.module('sparkyClient', [])
 //    sparky is resting next to the Fedex box
 //    0485f5a8,5afa8197,6af48f90,0ab34d09,57c84c65,4a50ee97,4b41d487,f983e6ac
 
-
+/*
     $http.post(url_answers, {
       sequence: '0485f5a8,5afa8197,6af48f90,0ab34d09,57c84c65,4a50ee97,4b41d487,f983e6ac',
       email: 'guilcher.pascal@gmail.com'
@@ -91,7 +91,7 @@ angular.module('sparkyClient', [])
         console.log(res);
       })
 
-
+*/
 
 
   });
