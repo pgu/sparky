@@ -10,6 +10,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
       var words_url = API_URL + '/words/';
       var answers_url = API_URL + '/answers/';
 
+/*
       $http.get($scope.pics_url)
         .then(function (res) {
           $scope.pics = res.data.list;
@@ -19,10 +20,14 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
         .then(function (res) {
           $scope.words = res.data.list;
         });
+*/
 
 
-
-   // $scope.words = [{value:'Sparky'},{value:'is'},{value:'on'},{value:'line'},{value:'over'},{value:'grey'},{value:'big'}];
+   $scope.words = [{value:'Sparky',identifier:'0485f5a1'},{value:'is',identifier:'0485f5a2'},
+   {value:'on',identifier:'0485f5a3'},{value:'line',identifier:'0485f5a4'},
+   {value:'over',identifier:'0485f5a5'},{value:'grey',identifier:'0485f5a6'},
+   {value:'big',identifier:'0485f5a7'},{value:'pavement',identifier:'0485f5a8'}
+   ];
 
 
 //    sparky is resting next to the Fedex box
