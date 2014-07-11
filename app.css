@@ -1,3 +1,9 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
  
 .repeated-item.ng-enter, .repeated-item.ng-move {
   -webkit-transition:0.5s linear all;
