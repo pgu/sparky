@@ -60,7 +60,6 @@
         </li>
       </ul>
       
-      <h4>Send your answer test51</h4>
       <div class="animate-if"
         ng-if="selected_words.length === hints.words_nb"
         >
@@ -69,8 +68,8 @@
         <form role="form">
           <div class="form-group">
             <label for="userEmail">Email address</label>
-            <input id="userEmail" type="email" class="form-control" placeholder="Enter your email"
-              ng-model="email">
+            <input id="userEmail" class="form-control" placeholder="Enter your email"
+              ng-model="answer.email">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
