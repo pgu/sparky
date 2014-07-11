@@ -44,12 +44,12 @@
       <ul class="nav nav-pills">
         <li
           class="repeated-item" 
-          ng-repeat="word in words | filter:{is_selected:true}"
+          ng-repeat="selected_word in selected_words"
         >
           <a href>
             <i class="fa fa-fw fa-caret-left"></i>
             <span style="margin-left: 5px; margin-right: 5px;">
-              {{ word.value }}  
+              {{ selected_word.value }}  
             </span>
             <i class="fa fa-fw fa-caret-right"></i>
           </a>
