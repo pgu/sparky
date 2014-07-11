@@ -2,9 +2,18 @@
 
 angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
+  .constant('HINTS', 
+    { 
+      week_nb: 1,
+      city: 'Palo Alto', 
+      words_nb: 8
+    })
+  
   .constant('API_URL', 'https://whereissparky.apispark.net/v1')
   
-  .controller('MainCtrl', function ($scope, API_URL, $http, $q, $location, $timeout, $window) {
+  .controller('MainCtrl', function ($scope, API_URL, HINTS, $http, $q, $location, $timeout, $window) {
+
+      $scope.hints = HINTS;
 
       $scope.pics_url = API_URL + '/SparkyCampaign/';
       var words_url = API_URL + '/words/';
@@ -51,6 +60,17 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
     $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
   }
 
+
+  $scope.getAnswer = function() {
+    var ids = _.map(selected_words, function(sw) {
+        return sw.identifier
+      }).join(',');
+      
+    return {
+      sequence: ids,
+      email: $scope.email
+    };
+  }
 
   $scope.pics = [{name: 'PaloAlto.png'},{name: 'SanFrancisco.png'},{name: 'Chicago.png'}];
   $scope.words = [
