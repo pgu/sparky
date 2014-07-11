@@ -7,79 +7,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="loading-bar.min.css"/>
   <link rel="stylesheet" href="app.css"/>
 </head>
-<body ng-app="sparkyClient" ng-controller="MainCtrl" ng-cloak>
+<body ng-app="sparkyClient" ng-controller="MainCtrl" ng-cloak style="padding-bottom: 100px">
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h1 class="page-header">Where is Sparky? <img src="sparky.png" style="width:55px"></h1>
+
       <p class="lead">
-        The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>. 
-        Currently, we are in the week <strong>{{ hints.week_nb }}</strong> of the game. The hints are: <strong>{{ hints.city }}</strong> and <strong>{{ hints.words_nb }} words</strong>.
+        The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>.
+        Currently, we are in the week <strong>{{ hints.week_nb }}</strong> of the game. The hints are: <strong>{{
+        hints.city }}</strong> and <strong>{{ hints.words_nb }} words</strong>.
       </p>
-      <h4>Available Pictures <small>(Open the week's picture and find Sparky)</small></h4>
+      <h4>Available Pictures
+        <small>(Open the week's picture and find Sparky)</small>
+      </h4>
       <ul class="nav nav-pills">
         <li class="repeated-item" ng-repeat="pic in pics">
           <a ng-href="{{ pics_url + pic.name }}"
              target="_blank"
              class="small"
-          ><i class="fa fa-fw fa-external-link"></i> {{ pic.name }}</a>
+            ><i class="fa fa-fw fa-external-link"></i> {{ pic.name }}</a>
         </li>
       </ul>
-      <h4>Available Words <small>(Select words and order them to build a sentence with the specified number of words)</small></h4>
+      <h4>Available Words
+        <small>(Select words and order them to build a sentence with the specified number of words)</small>
+      </h4>
       <ul class="nav nav-pills">
         <li
-          class="repeated-item" 
+          class="repeated-item"
           ng-repeat="word in words"
           ng-class="{ 'active': word.is_selected }"
           ng-click="toggleWord(word)"
-        >
+          >
           <a href>{{ word.value }}</a>
         </li>
       </ul>
       <h4 class="animate-if"
-        ng-if="selected_words.length">The final sentence is ...</h4>
+          ng-if="selected_words.length">The final sentence is ...</h4>
       <ul class="nav nav-pills">
         <li
-          class="repeated-item" 
+          class="repeated-item"
           ng-repeat="selected_word in selected_words"
-        >
+          >
           <a href>
             <i class="fa fa-fw fa-caret-left"
-              ng-if="$index > 0"
-              ng-click="moveLeft(selected_word)"></i>
+               ng-if="$index > 0"
+               ng-click="moveLeft(selected_word)"></i>
             <span style="margin-left: 5px; margin-right: 5px;">
               {{ selected_word.value }}  
             </span>
             <i class="fa fa-fw fa-caret-right"
-              ng-if="$index < selected_words.length - 1"
-              ng-click="moveRight(selected_word)"></i>
+               ng-if="$index < selected_words.length - 1"
+               ng-click="moveRight(selected_word)"></i>
           </a>
         </li>
       </ul>
-      
+
       <div class="animate-if"
-        ng-if="selected_words.length === hints.words_nb"
+           ng-if="selected_words.length === hints.words_nb"
         >
         <h4>Send your answer</h4>
-          
+
         <form role="form" ng-submit="sendAnswer()">
           <div class="form-group">
             <label for="userEmail">Email address</label>
             <input id="userEmail" class="form-control" placeholder="Enter your email"
-              ng-model="answer.email">
+                   ng-model="answer.email">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit"
+                  class="btn btn-default"
+                  ng-disabled="isFormDisabled()">Submit
+          </button>
         </form>
+        <div ng-if="answer_is_done" class="animate-if">
+          <p></p>
+
+          <p class="bg-success text-center"
+             style="font-size: 36px"><strong>Done!</strong></p>
+        </div>
         <p></p>
         <pre>{{ answer | json }}</pre>
       </div>
-    </div>      
-  </div>      
-</div>      
-
+    </div>
+  </div>
+</div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -88,6 +103,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-animate.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="loading-bar.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

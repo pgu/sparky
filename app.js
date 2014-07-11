@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
+angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate', 'angular-loading-bar'])
 
   .constant('HINTS',
   {
@@ -19,17 +19,15 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
     var words_url = API_URL + '/words/';
     var answers_url = API_URL + '/answers/';
 
-    /*
-     $http.get($scope.pics_url)
-     .then(function (res) {
-     $scope.pics = res.data.list;
-     });
+    $http.get($scope.pics_url)
+      .then(function (res) {
+        $scope.pics = res.data.list;
+      });
 
-     $http.get(words_url)
-     .then(function (res) {
-     $scope.words = res.data.list;
-     });
-     */
+    $http.get(words_url)
+      .then(function (res) {
+        $scope.words = res.data.list;
+      });
 
     $scope.selected_words = [];
 
@@ -71,37 +69,28 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
     }, true);
 
-    $scope.pics = [
-      {name: 'PaloAlto.png'},
-      {name: 'SanFrancisco.png'},
-      {name: 'Chicago.png'}
-    ];
-    $scope.words = [
-      {value: 'Sparky', identifier: '0485f5a1'},
-      {value: 'is', identifier: '0485f5a2'},
-      {value: 'on', identifier: '0485f5a3'},
-      {value: 'line', identifier: '0485f5a4'},
-      {value: 'over', identifier: '0485f5a5'},
-      {value: 'grey', identifier: '0485f5a6'},
-      {value: 'big', identifier: '0485f5a7'},
-      {value: 'pavement', identifier: '0485f5a8'},
-      {value: 'wSparky', identifier: '10485f5a1'},
-      {value: 'wis', identifier: '10485f5a2'},
-      {value: 'won', identifier: '10485f5a3'},
-      {value: 'wline', identifier: '10485f5a4'},
-      {value: 'wover', identifier: '10485f5a5'},
-      {value: 'wgrey', identifier: '10485f5a6'},
-      {value: 'wbig', identifier: '10485f5a7'},
-      {value: 'wpavement', identifier: '10485f5a8'}
-    ];
+
+
+    $scope.answer_is_done = false;
 
     $scope.sendAnswer = function () {
       $http.post(answers_url, $scope.answer)
         .then(function () {
-
+          $scope.answer_is_done = true;
+          $timeout(function () {
+            $scope.answer_is_done = false;
+          }, 2000);
         });
     };
 
+    $scope.isFormDisabled = function () {
+
+      var hasNoEmail = _.isEmpty($scope.answer.email);
+      var hasNotWordsNb = $scope.selected_words.length !== HINTS.words_nb;
+
+      var isDisabled = hasNotWordsNb || hasNoEmail;
+      return isDisabled;
+    };
 
   });
 
