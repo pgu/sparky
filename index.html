@@ -30,8 +30,11 @@
         </li>
       </ul>
       <h4>Available Words</h4>
-      <ul class="repeated-item" ng-repeat="word in words">
-        <li>{{ word.value }}</li>
+      <ul class="repeated-item nav nav-pills" ng-repeat="word in words">
+        <li
+          ng-class="{ 'active': word.is_selected }"
+          ng-click="toggleWord(word)"
+        >{{ word.value }}</li>
       </ul>
     </div>      
   </div>      
