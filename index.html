@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <span>test00003</span>
+      <span>test00004</span>
       <h1 class="page-header">Where is Sparky? <img src="https://pbs.twimg.com/profile_images/445594352937492480/pX9A1h2E.png" style="width:32px"></h1>
       <p class="lead">
         The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>. 
@@ -31,6 +31,7 @@
       </ul>
       <h4>Available Words</h4>
       <ul class="repeated-item" ng-repeat="word in words">
+        <li>{{ word }}</li>
         <li>{{ word.value }}</li>
       </ul>
     </div>      
