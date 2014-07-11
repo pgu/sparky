@@ -20,8 +20,11 @@
         Currently, we are in the <strong>first</strong> week of the game. The hints are: <strong>Palo Alto</strong> and <strong>8 words</strong>.
       </p>
       <h4>Available Pictures</h4>
-      <ul class="repeated-item" ng-repeat="pic in pics">
+        <span>test00001</span>
         <span>{{ pics }}</span>
+
+      <ul class="repeated-item" ng-repeat="pic in pics">
+        <li>{{ pic }}</li>
         <li>{{ pic.name }}
           <a ng-href="{{ pics_url + '/' + pic.name }}"
              target="_blank"
@@ -33,6 +36,7 @@
       <span>{{ words }}</span>
       <ul class="repeated-item" ng-repeat="word in words">
         <li>{{ word }}</li>
+        <li>{{ word.value }}</li>
       </ul>
     </div>      
   </div>      
