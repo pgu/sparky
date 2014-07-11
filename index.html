@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1 class="page-header">Where is Sparky? <img src="https://pbs.twimg.com/profile_images/445594352937492480/pX9A1h2E.png" style="width:32px"></h1>
+      <h1 class="page-header">Where is Sparky? <img src="sparky.png" style="width:55px"></h1>
       <p class="lead">
         The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>. 
         Currently, we are in the week <strong>{{ hints.week_nb }}</strong> of the game. The hints are: <strong>{{ hints.city }}</strong> and <strong>{{ hints.words_nb }} words</strong>.
@@ -65,7 +65,7 @@
         >
         <h4>Send your answer</h4>
           
-        <form role="form">
+        <form role="form" ng-submit="sendAnswer()">
           <div class="form-group">
             <label for="userEmail">Email address</label>
             <input id="userEmail" class="form-control" placeholder="Enter your email"
