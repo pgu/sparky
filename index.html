@@ -21,6 +21,7 @@
       </p>
       <h4>Available Pictures</h4>
       <ul class="repeated-item" ng-repeat="pic in pics">
+        <span>{{ pics }}</span>
         <li>{{ pic.name }}
           <a ng-href="{{ pics_url + '/' + pic.name }}"
              target="_blank"
@@ -29,6 +30,7 @@
         </li>
       </ul>
       <h4>Available Words</h4>
+      <span>{{ words }}</span>
       <ul class="repeated-item" ng-repeat="word in words">
         <li>{{ word }}</li>
       </ul>
