@@ -3,12 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Sparky</title>
+  <meta name="description" content="Webapp to help finding Sparky, the APISpark's mascot">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="app.css"/>
 </head>
-<body ng-app="sparkyClient" ng-controller="MainCtrl">
+<body ng-app="sparkyClient" ng-controller="MainCtrl" ng-cloak>
 
-test
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="page-header">Where is Sparky?</h1>
+      <h4>Available Pictures</h4>
+      <h4>Available Words</h4>
+    </div>      
+  </div>      
+</div>      
+
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-animate.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 <script src="app.js"></script>
 </body>
