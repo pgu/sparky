@@ -22,11 +22,19 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
         });
 */
 
+  $scope.toggleWord = function(w) {
+    w.is_selected = !w.is_selected;
+  }
 
-   $scope.words = [{value:'Sparky',identifier:'0485f5a1'},{value:'is',identifier:'0485f5a2'},
-   {value:'on',identifier:'0485f5a3'},{value:'line',identifier:'0485f5a4'},
-   {value:'over',identifier:'0485f5a5'},{value:'grey',identifier:'0485f5a6'},
-   {value:'big',identifier:'0485f5a7'},{value:'pavement',identifier:'0485f5a8'}
+   $scope.words = [
+     {value:'Sparky',identifier:'0485f5a1'},{value:'is',identifier:'0485f5a2'},
+     {value:'on',identifier:'0485f5a3'},{value:'line',identifier:'0485f5a4'},
+     {value:'over',identifier:'0485f5a5'},{value:'grey',identifier:'0485f5a6'},
+     {value:'big',identifier:'0485f5a7'},{value:'pavement',identifier:'0485f5a8'},
+     {value:'wSparky',identifier:'10485f5a1'},{value:'wis',identifier:'10485f5a2'},
+     {value:'won',identifier:'10485f5a3'},{value:'wline',identifier:'10485f5a4'},
+     {value:'wover',identifier:'10485f5a5'},{value:'wgrey',identifier:'10485f5a6'},
+     {value:'wbig',identifier:'10485f5a7'},{value:'wpavement',identifier:'10485f5a8'}
    ];
 
 
