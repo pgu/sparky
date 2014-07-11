@@ -17,6 +17,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
       $http.get(words_url)
         .then(function (res) {
+          console.info(res);
           $scope.words = res.data;
         });
 
