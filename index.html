@@ -39,7 +39,8 @@
           <a href>{{ word.value }}</a>
         </li>
       </ul>
-      <h5>The final sentence</h5>
+      <h5 class="animate-if"
+        ng-if="selected_words.length">The final sentence</h5>
       <ul class="nav nav-pills">
         <li
           class="repeated-item" 
