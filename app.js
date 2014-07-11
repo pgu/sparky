@@ -62,7 +62,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
 
   $scope.getAnswer = function() {
-    var ids = _.map(selected_words, function(sw) {
+    var ids = _.map($scope.selected_words, function(sw) {
         return sw.identifier
       }).join(',');
       
