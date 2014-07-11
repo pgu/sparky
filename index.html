@@ -32,24 +32,29 @@
       <h4>Available Words <small>(Build a sentence with the specified number of words)</small></h4>
       <ul class="nav nav-pills">
         <li
-          class="repeated-item" ng-repeat="word in words"
+          class="repeated-item" 
+          ng-repeat="word in words"
           ng-class="{ 'active': word.is_selected }"
         >
+          <a href>{{ word.value }}</a>
+        </li>
+      </ul>
+      <h3>The final sentence</h3>
+      <ul class="nav nav-pills">
+        <li
+          class="repeated-item" 
+          ng-repeat="word in words | filter:is_selected"
+        >
           <a href>
-            <i 
-              class="fa fa-fw fa-caret-left"
-              ng-if="word.is_selected"></i>
-            <span
-              style="margin-left: 5px; margin-right: 5px;"
-              ng-click="toggleWord(word)">
+            <i class="fa fa-fw fa-caret-left"></i>
+            <span style="margin-left: 5px; margin-right: 5px;">
               {{ word.value }}  
             </span>
-            <i 
-              class="fa fa-fw fa-caret-right"
-              ng-if="word.is_selected"></i>
+            <i class="fa fa-fw fa-caret-right"></i>
           </a>
         </li>
       </ul>
+      
     </div>      
   </div>      
 </div>      
