@@ -26,7 +26,8 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
     w.is_selected = !w.is_selected;
   }
 
-   $scope.words = [
+  $scope.pics = [{name: 'PaloAlto.png'},{name: 'SanFrancisco.png'},{name: 'Chicago.png'}];
+  $scope.words = [
      {value:'Sparky',identifier:'0485f5a1'},{value:'is',identifier:'0485f5a2'},
      {value:'on',identifier:'0485f5a3'},{value:'line',identifier:'0485f5a4'},
      {value:'over',identifier:'0485f5a5'},{value:'grey',identifier:'0485f5a6'},
