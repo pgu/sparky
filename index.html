@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <span>test00002</span>
+      <span>test00003</span>
       <h1 class="page-header">Where is Sparky? <img src="https://pbs.twimg.com/profile_images/445594352937492480/pX9A1h2E.png" style="width:32px"></h1>
       <p class="lead">
         The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>. 
@@ -23,7 +23,7 @@
       <h4>Available Pictures</h4>
       <ul class="repeated-item" ng-repeat="pic in pics">
         <li>{{ pic.name }}
-          <a ng-href="{{ pics_url + '/' + pic.name }}"
+          <a ng-href="{{ pics_url + pic.name }}"
              target="_blank"
              class="small"
           ><i class="fa fa-fw fa-external-link"></i></a>
