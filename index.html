@@ -14,7 +14,6 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <span>test00005</span>
       <h1 class="page-header">Where is Sparky? <img src="https://pbs.twimg.com/profile_images/445594352937492480/pX9A1h2E.png" style="width:32px"></h1>
       <p class="lead">
         The game's rules are described <a target="_blank" href="http://pages.restlet.com/whereissparky">here</a>. 
@@ -35,15 +34,16 @@
           class="repeated-item" 
           ng-repeat="word in words"
           ng-class="{ 'active': word.is_selected }"
+          ng-click="toggleWord(word)"
         >
           <a href>{{ word.value }}</a>
         </li>
       </ul>
-      <h3>The final sentence</h3>
+      <h5>The final sentence</h5>
       <ul class="nav nav-pills">
         <li
           class="repeated-item" 
-          ng-repeat="word in words | filter:is_selected"
+          ng-repeat="word in words | filter:{is_selected:true}"
         >
           <a href>
             <i class="fa fa-fw fa-caret-left"></i>
