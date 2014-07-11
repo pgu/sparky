@@ -35,6 +35,23 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
     
   }
 
+  $scope.moveLeft = function(sw) {
+    var old_idx = _.indexOf($scope.selected_words, sw);
+    var new_idx = old_idx -1;
+    
+    $scope.selected_words.splice(old_idx, 1); // removes sw
+    $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
+  }
+
+  $scope.moveRight = function(sw) {
+    var old_idx = _.indexOf($scope.selected_words, sw);
+    var new_idx = old_idx +1;
+    
+    $scope.selected_words.splice(old_idx, 1); // removes sw
+    $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
+  }
+
+
   $scope.pics = [{name: 'PaloAlto.png'},{name: 'SanFrancisco.png'},{name: 'Chicago.png'}];
   $scope.words = [
      {value:'Sparky',identifier:'0485f5a1'},{value:'is',identifier:'0485f5a2'},
