@@ -7,27 +7,18 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
   .controller('MainCtrl', function ($scope, API_URL, $http, $q, $location, $timeout, $window) {
 
       $scope.pics_url = API_URL + '/SparkyCampaign/';
-      var url_words = API_URL + '/words/';
-      var url_answers = API_URL + '/answers/';
+      var words_url = API_URL + '/words/';
+      var answers_url = API_URL + '/answers/';
 
       $http.get($scope.pics_url)
         .then(function (res) {
           $scope.pics = res.data;
-          
-          // _.each(pics, function(pic) {
-             // $http.get(url_pics + pic.name)
-               // .then(function(res) {
-
-               // });
-          // });
-
         });
 
-
-//    $http.get(url_words)
-//      .then(function(res) {
-//        console.log(res.data);
-//      })
+      $http.get(words_url)
+        .then(function (res) {
+          $scope.words = res.data;
+        });
 
 //    sparky is resting next to the Fedex box
 //    0485f5a8,5afa8197,6af48f90,0ab34d09,57c84c65,4a50ee97,4b41d487,f983e6ac
