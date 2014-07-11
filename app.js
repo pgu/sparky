@@ -12,13 +12,12 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
       $http.get($scope.pics_url)
         .then(function (res) {
-          $scope.pics = res.data;
+          $scope.pics = res.data.list;
         });
 
       $http.get(words_url)
         .then(function (res) {
-          console.info(res);
-          $scope.words = res.data;
+          $scope.words = res.data.list;
         });
 
 //    sparky is resting next to the Fedex box
