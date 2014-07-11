@@ -60,17 +60,25 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
     $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
   }
 
-
-  $scope.getAnswer = function() {
-    var ids = _.map($scope.selected_words, function(sw) {
+  
+  $scope.answer = {};
+  $scope.email = '';
+  
+  $scope.$watch('selected_words', function() {
+    
+    $scope.answer.sequence = _.map($scope.selected_words, function(sw) {
         return sw.identifier
       }).join(',');
-      
-    return {
-      sequence: ids,
-      email: $scope.email
-    };
-  }
+    
+  });
+
+  $scope.$watch('email', function() {
+    
+    $scope.answer.email = $scope.email;
+    
+  });
+  
+
 
   $scope.pics = [{name: 'PaloAlto.png'},{name: 'SanFrancisco.png'},{name: 'Chicago.png'}];
   $scope.words = [
