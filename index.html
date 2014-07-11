@@ -47,11 +47,15 @@
           ng-repeat="selected_word in selected_words"
         >
           <a href>
-            <i class="fa fa-fw fa-caret-left"></i>
+            <i class="fa fa-fw fa-caret-left"
+              ng-if="$index > 0"
+              ng-click="moveLeft(selected_word)"></i>
             <span style="margin-left: 5px; margin-right: 5px;">
               {{ selected_word.value }}  
             </span>
-            <i class="fa fa-fw fa-caret-right"></i>
+            <i class="fa fa-fw fa-caret-right"
+              ng-if="$index < selected_words.length - 1"
+              ng-click="moveRight(selected_word)"></i>
           </a>
         </li>
       </ul>
