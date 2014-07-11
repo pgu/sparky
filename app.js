@@ -1,77 +1,27 @@
 'use strict';
 
-angular.module('sparkyClient', [])
+angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate'])
 
-//  .config(function ($httpProvider) {
-//
-//    function isCallToGitHub (config) {
-//      return config.url.indexOf('https://api.github.com') === 0;
-//    }
-//
-//    $httpProvider.interceptors.push(
-//      function ($q) {
-//        return {
-//          request: function (config) {
-//
-////            if (isCallToGitHub(config)) {
-////              config.headers.accept = 'application/vnd.github.v3+json';
-////            }
-//
-//            return config;
-//          },
-//          responseError: function (rejection) {
-//
-////            if (isCallToGitHub(rejection.config)) {
-////
-////              var headers = rejection.headers();
-////              var reset = headers['x-ratelimit-reset'] || '';
-////
-////              var newError = {
-////                url: rejection.config.url,
-////                message: rejection.data.message,
-////                documentation_url: rejection.data.documentation_url,
-////                limit: headers['x-ratelimit-limit'] || '',
-////                remaining: headers['x-ratelimit-remaining'] || '',
-////                reset: reset ? moment.unix(reset).format('llll') : ''
-////              };
-////
-////              // avoid duplicates
-////              var url2error = _.indexBy(errorHelper.apiCallErrors, 'url');
-////              url2error[newError.url] = newError;
-////              errorHelper.apiCallErrors = _.values(url2error);
-////            }
-//
-//            return $q.reject(rejection);
-//          }
-//        };
-//      }
-//    );
-//
-//  })
+  .constant('API_URL', 'https://whereissparky.apispark.net/v1')
+  
+  .controller('MainCtrl', function ($scope, API_URL, $http, $q, $location, $timeout, $window) {
 
-  .controller('MainCtrl', function ($scope, $http, $q, $location, $timeout, $window) {
+      $scope.pics_url = API_URL + '/SparkyCampaign/';
+      var url_words = API_URL + '/words/';
+      var url_answers = API_URL + '/answers/';
 
+      $http.get($scope.pics_url)
+        .then(function (res) {
+          $scope.pics = res.data;
+          
+          // _.each(pics, function(pic) {
+             // $http.get(url_pics + pic.name)
+               // .then(function(res) {
 
-    console.info('test');
+               // });
+          // });
 
-      var url = 'https://whereissparky.apispark.net/v1';
-      var url_pics = url + '/SparkyCampaign/';
-      var url_words = url + '/words/';
-      var url_answers = url + '/answers/';
-
-//      $http.get(url_pics)
-//        .then(function (res) {
-//          console.log(res.data);
-//
-//          var pics = res.data;
-//          _.each(pics, function(pic) {
-//             $http.get(url_pics + pic.name)
-//               .then(function(res) {
-//
-//               });
-//          });
-//
-//        });
+        });
 
 
 //    $http.get(url_words)
