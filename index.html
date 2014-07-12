@@ -86,8 +86,22 @@
         <div ng-if="answer_is_done" class="animate-if">
           <p></p>
 
-          <p class="bg-success text-center"
-             style="font-size: 36px"><strong>Done!</strong></p>
+          <p class="alert alert-success text-center"
+             style="font-size: 36px"><strong>Well done!</strong></p>
+
+          <p></p>
+
+          <p class="alert alert-info text-center">
+            <strong>Heads up!</strong>
+            The game's API is
+            <a target="_blank" href="https://apispark.com/apis/2092/versions/1/overview/"
+               class="alert-link">here</a>
+            and all the details about APISpark is
+            <a target="_blank" href="https://apispark.com/"
+               class="alert-link">there</a>. Enjoy!
+
+          </p>
+
         </div>
         <p></p>
         <pre>{{ answer | json }}</pre>
@@ -107,10 +121,17 @@
 <script src="app.js"></script>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
   ga('create', 'UA-40453297-18', 'auto');
   ga('send', 'pageview');
