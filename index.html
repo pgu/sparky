@@ -35,35 +35,29 @@
         </li>
       </ul>
       <h4>Available Words
-        <small>(Select words and order them to build a sentence with the specified number of words)</small>
+        <small>(Build a sentence with the specified number of words, by clicking on them)</small>
       </h4>
-      <ul class="nav nav-pills">
-        <li
-          class="repeated-item"
-          ng-repeat="word in words"
-          ng-class="{ 'active': word.is_selected }"
-          ng-click="toggleWord(word)"
-          >
-          <a href>{{ word.value }}</a>
-        </li>
-      </ul>
+      <button type="button"
+              class="btn btn-default repeated-item"
+              style="margin-right: 5px;margin-top: 2px;margin-bottom: 3px;"
+              ng-repeat="word in words"
+              ng-click="addWord(word)"
+        >
+        {{ word.value }}
+      </button>
       <h4 class="animate-if"
           ng-if="selected_words.length">The final sentence is ...</h4>
       <ul class="nav nav-pills">
         <li
           class="repeated-item"
-          ng-repeat="selected_word in selected_words"
+          ng-repeat="selected_word in selected_words track by $index"
           >
           <a href>
-            <i class="fa fa-fw fa-caret-left"
-               ng-if="$index > 0"
-               ng-click="moveLeft(selected_word)"></i>
-            <span style="margin-left: 5px; margin-right: 5px;">
-              {{ selected_word.value }}  
+            <span style="margin-right: 5px;">
+              {{ selected_word.value }}
             </span>
-            <i class="fa fa-fw fa-caret-right"
-               ng-if="$index < selected_words.length - 1"
-               ng-click="moveRight(selected_word)"></i>
+            <i class="fa fa-fw fa-times"
+               ng-click="removeWordByIdx($index)"></i>
           </a>
         </li>
       </ul>

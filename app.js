@@ -31,33 +31,13 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate', 'angular-loading-ba
 
     $scope.selected_words = [];
 
-    $scope.toggleWord = function (w) {
-      w.is_selected = !w.is_selected;
-
-      if (w.is_selected) {
-        $scope.selected_words.push(w);
-      } else {
-        $scope.selected_words = _.without($scope.selected_words, w);
-      }
-
+    $scope.addWord = function(w) {
+      $scope.selected_words.push(w);
     };
 
-    $scope.moveLeft = function (sw) {
-      var old_idx = _.indexOf($scope.selected_words, sw);
-      var new_idx = old_idx - 1;
-
-      $scope.selected_words.splice(old_idx, 1); // removes sw
-      $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
+    $scope.removeWordByIdx = function(idx) {
+      $scope.selected_words.splice(idx, 1);
     };
-
-    $scope.moveRight = function (sw) {
-      var old_idx = _.indexOf($scope.selected_words, sw);
-      var new_idx = old_idx + 1;
-
-      $scope.selected_words.splice(old_idx, 1); // removes sw
-      $scope.selected_words.splice(new_idx, 0, sw); // inserts sw at its new idx
-    };
-
 
     $scope.answer = {};
 
