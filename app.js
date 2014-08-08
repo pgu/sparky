@@ -4,7 +4,7 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate', 'angular-loading-ba
 
   .constant('HINTS',
   {
-    week_nb: 4,
+    week_nb: 5,
     city: 'Salt Lake City',
     words_nb: 7
   })
