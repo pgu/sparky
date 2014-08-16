@@ -45,8 +45,7 @@
         >
         {{ word.value }}
       </button>
-      <h4 class="animate-if"
-          ng-if="selected_words.length">The final sentence is ...</h4>
+      <h4>The final sentence is ...</h4>
       <ul class="nav nav-pills">
         <li
           class="repeated-item"
@@ -62,9 +61,7 @@
         </li>
       </ul>
 
-      <div class="animate-if"
-           ng-if="selected_words.length === hints.words_nb"
-        >
+      <div>
         <h4>Send your answer</h4>
 
         <form role="form" ng-submit="sendAnswer()">
@@ -75,6 +72,7 @@
           </div>
           <button type="submit"
                   class="btn btn-default"
+                  ng-class="{ 'btn-primary': selected_words.length === hints.words_nb }"
                   ng-disabled="isFormDisabled()">Submit
           </button>
         </form>
