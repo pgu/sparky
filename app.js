@@ -66,10 +66,11 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate', 'angular-loading-ba
     $scope.isFormDisabled = function () {
 
       var hasNoEmail = _.isEmpty($scope.answer.email);
-      var hasNotWordsNb = $scope.selected_words.length !== HINTS.words_nb;
+      // var hasNotWordsNb = $scope.selected_words.length !== HINTS.words_nb;
 
-      var isDisabled = hasNotWordsNb || hasNoEmail;
-      return isDisabled;
+      // var isDisabled = hasNotWordsNb || hasNoEmail;
+      // return isDisabled;
+      return hasNoEmail;
     };
 
   });
