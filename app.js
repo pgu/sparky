@@ -4,9 +4,9 @@ angular.module('sparkyClient', ['ui.bootstrap', 'ngAnimate', 'angular-loading-ba
 
   .constant('HINTS',
   {
-    week_nb: 10,
-    city: 'Joliet',
-    words_nb: 9
+    week_nb: 11,
+    city: 'Chicago',
+    words_nb: 7
   })
 
   .constant('API_URL', 'https://whereissparky.apispark.net/v1')
